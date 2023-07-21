@@ -6,12 +6,14 @@ import { BetterHightlightDirective } from './better-hightlight/better-hightlight
 
 
 import { AppComponent } from './app.component';
+import { StructuralDirectiveDirective } from './structural-directive.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicHighLightDirective,
-    BetterHightlightDirective
+    BetterHightlightDirective,
+    StructuralDirectiveDirective
   ],
   imports: [
     BrowserModule,

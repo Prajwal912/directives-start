@@ -16,7 +16,7 @@
         </div>
 
         <!-- //if we dont have to use the * with ng for or if then we have to wrap the element into ng-template and use the property binding -->
-        <ng-template [ngIf]="!onlyOdd">
+        <!-- <ng-template [ngIf]="!onlyOdd">
           <div *ngIf="!onlyOdd">
             <li class="list-group-item" *ngFor="let even of numEven"
              [ngClass]="{odd: even % 2 === 0}"
@@ -24,7 +24,17 @@
               {{ even }}
             </li>
           </div>
-        </ng-template>
+        </ng-template> -->
+
+
+
+          <div *appStructuralDirective="onlyOdd">
+            <li class="list-group-item" *ngFor="let even of numEven"
+             [ngClass]="{odd: even % 2 === 0}"
+             [ngStyle]="{backgroundColor: even % 2 === 0 ? 'grey': 'transparent'}">
+              {{ even }}
+            </li>
+          </div>
 
 
       </ul>
