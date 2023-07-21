@@ -14,13 +14,19 @@
             {{ odd }}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
-          <li class="list-group-item" *ngFor="let even of numEven"
-           [ngClass]="{odd: even % 2 === 0}"
-           [ngStyle]="{backgroundColor: even % 2 === 0 ? 'grey': 'transparent'}">
-            {{ even }}
-          </li>
-        </div>
+
+        <!-- //if we dont have to use the * with ng for or if then we have to wrap the element into ng-template and use the property binding -->
+        <ng-template [ngIf]="!onlyOdd">
+          <div *ngIf="!onlyOdd">
+            <li class="list-group-item" *ngFor="let even of numEven"
+             [ngClass]="{odd: even % 2 === 0}"
+             [ngStyle]="{backgroundColor: even % 2 === 0 ? 'grey': 'transparent'}">
+              {{ even }}
+            </li>
+          </div>
+        </ng-template>
+
+
       </ul>
 
       <p appBasicHighlight> style me with a basic directive </p>
