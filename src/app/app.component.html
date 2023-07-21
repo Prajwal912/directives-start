@@ -24,7 +24,9 @@
       </ul>
 
       <p appBasicHighlight> style me with a basic directive </p>
-      <p appBetterHightlight> style me with a basic directive </p>
+      <!-- we can bind the directives using the input decorator -->
+      <!-- we can use or cant use the [] if we are using the [] then we have to use the "''" and if we are not using the [] then we can simply use the '' -->
+      <p appBetterHightlight [defaultColor]="'grey'" [highlightColor]="'yellow'" textColor="brown"> style me with a basic directive </p>
     </div>
   </div>
 </div>

@@ -1,11 +1,13 @@
-import { ElementRef, HostBinding, HostListener } from '@angular/core';
+import { ElementRef, HostBinding, HostListener, Input } from '@angular/core';
 import { Directive, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHightlight]'
 })
 export class BetterHightlightDirective implements OnInit {
-
+ @Input() defaultColor: string = 'transparent';
+ @Input() highlightColor: string = 'blue';
+ @Input() textColor: string = 'white';
   constructor(private elRef:ElementRef, private renderer: Renderer2) { }
 
 ngOnInit(): void {
@@ -17,18 +19,18 @@ ngOnInit(): void {
 //  without using the renderer and elementRef ,native element
 
 //setting the initial value
-@HostBinding('style.backgroundColor') background : string = 'red';
+@HostBinding('style.backgroundColor') bg : string = 'red';
 @HostBinding('style.color') color : string = 'black';
 
 // we can use the hostbinding in place of renderer and it is easy to use to manipulate the dom
 @HostListener('mouseenter') mouseover(evenetData: Event){
   // this.renderer.setStyle(this.elRef.nativeElement, 'color','red' )
-  this.background = 'blue'
-  this.color = 'white'
+  this.bg = this.highlightColor
+  this.color = this.textColor;
 }
 @HostListener('mouseleave') mouseleave(evenetData: Event){
   // this.renderer.setStyle(this.elRef.nativeElement, 'color','white' )
-  this.background = 'transparent'
+  this.bg = this.defaultColor;
   this.color = 'black'
 }
 
